@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>@(at)HTMLEditor2 ヘルプガイド</title>
+  <style>
+    /*全体的なスタイル設定 */
+    body {
+    color: #333333; /* テキストの色をダークグレーに設定 */
+    margin: 0; /* ページ全体の余白を削除 */
+    background-color: #f4f4f4; /* 背景色をライトグレーに設定 */
+    font-family: Arial, Helvetica, sans-serif; /*フォントの設定*/
+    }
+
+    /* ヘッダーのスタイル設定 */
+    header {
+    background-color: #3498db; /* ヘッダーの背景色を青に設定 */
+    padding: 20px 0; /* ヘッダーの内側の余白を20ピクセルに設定 */
+    text-align: center; /* ヘッダー内のテキストを中央揃えに設定 */
+    color: #ffffff; /* ヘッダー内のテキスト色を白に設定 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ヘッダーに影を追加 */
+    }
+
+    header nav ul {
+    list-style: none; /* リストスタイルを削除 */
+    padding: 0; /* パディングを削除 */
+    margin: 2px 5px; /* 外側の余白を2ピクセル上下、5ピクセル左右に設定 */
+    }
+
+    header nav ul li {
+    display: inline; /* リストアイテムをインラインで表示 */
+    margin: 0 18px; /* 左右の外側の余白を18ピクセルに設定 */
+    }
+
+    header a {
+    color: #ffffff; /* テキストの色を白に設定 */
+    text-decoration:none; /* テキストの下線を削除 */
+    font-weight: bold; /* テキストを太字に設定 */
+    }
+
+    /*コンテナのスタイル設定*/
+    .container {
+    max-width: 1100px; /* 最大幅を1100ピクセルに設定 */
+    margin: 24px auto; /* 左右の外側の余白を自動設定し、中央に配置 */
+    background-color:#ffffff; /* 背景色を白に設定 */
+    border-radius: 12px; /* 角を丸く設定 */
+    overflow: hidden; /* コンテンツがコンテナからはみ出さないように設定 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* コンテナに影を追加 */
+    }
+
+    /* メインコンテンツエリアのスタイル設定 */
+    main {
+    padding: 20px; /* 内側の余白を20ピクセルに設定 */
+    box-sizing: border-box; /* ボックスサイズを含める設定 */
+    width: 75%; /* 幅を75%に設定 */
+    }
+
+    /*contentsエリアのスタイル設定*/
+    .content {
+    display: flex; /* フレックスボックスレイアウトを設定 */
+    flex-wrap: wrap; /* コンテンツが折り返されるように設定 */
+    padding: 20px; /* 内側の余白を20ピクセルに設定 */
+    }
+
+    /*サイドバースタイルの設定*/
+    .sidebar {
+    width: 25%; /* 幅を25%に設定 */
+    background-color: #e1e7e8; /* 背景色を薄い灰色に設定 */
+    padding: 10px; /* 内側の余白を10ピクセルに設定 */
+    border-radius: 12px; /* 角を丸く設定 */
+    box-sizing: border-box; /* ボックスサイズを含める設定 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* サイドバーに影を追加 */
+    }
+
+    /* フッターのスタイル設定 */
+    footer {
+    background-color: #b8d200; /* フッターの背景色を黄緑に設定 */
+    color: #ffffff;
+    padding: 5px; /* フッターの内側の余白を5ピクセルに設定 */
+    text-align: center; /* フッター内のテキストを中央揃えに設定 */
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* フッターに影を追加 */
+    }
+
+    
+    /* 見出し要素のスタイル設定 */
+    h2,h3,h4 {
+    margin: 0;
+    padding: 10px;
+    color: #333333; /* テキストの色を統一 */
+    }
+
+    h2 {
+    font-size: 27px; /* フォントサイズを27ピクセルに設定 */
+    padding: 5px; /* 内側の余白を5ピクセルに設定 */
+    border: 4px solid #b8d200; /* 周囲に2ピクセルの黄緑の実線ボーダーを設定 */
+    border-left: 20px solid #b8d200; /* 左側に20ピクセルの黄緑の実線ボーダーを追加 */
+    margin : 10px 0; /* 上下の外側の余白を10ピクセルに設定 */
+    border-radius: 5px; /* 角を丸く設定 */
+    }
+    h3 {
+    font-size: 23px; /* フォントサイズを23ピクセルに設定 */
+    padding: 3px; /* 内側の余白を3ピクセルに設定 */
+    border-bottom: 3px solid #b8d200; /* 下に3ピクセルの黄緑の実線ボーダーを設定 */
+    margin : 7px 0; /* 上下の外側の余白を7ピクセルに設定 */
+    }
+
+    h4 {
+    font-size: 18px; /*フォントサイズを18ピクセルに設定 */
+    padding: 2px; /* 内側の余白を2ピクセルに設定 */
+    border-bottom: 2px solid #b8d200; /* 下に2ピクセルの黄緑の実線ボーダーを設定 */
+    margin : 7px 0; /* 上下の外側の余白を7ピクセルに設定 */
+    }
+
+    .download-button {
+    background: linear-gradient(to top, #ff8c33, #f9e8d2);
+    border: 2px solid #cc6a29;
+    color: ffffff;
+    }
+
+    .download-vector-button {
+    background: linear-gradient(to top, #1e9a43, #e2f7e2);
+    border: 2px solid #28a64d;
+    }
+
+    table {
+    width: 100%;
+    font-size: 18px;
+    border-collapse: collapse;
+    }
+
+    th, td {
+    padding: 5px;
+    border-bottom: 1px solid #eeeeee;
+    }
+
+    th {
+    background-color: #3498db;
+    color: #ffffff;
+    }
+
+    tbody tr:hover {
+    background-color: #eeeeee;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+      flex-direction: column;
+      }
+      .sidebar {
+      width: 100%;
+      order: 2; /* サイドバーを2番目に表示 */
+      }
+
+      main {
+      width: 100%;
+      padding: 5px;
+      order: 1; /* メインコンテンツを1番目に表示 */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>@(at)HTMLEditor2 ヘルプガイド</h1>
+      <nav>
+        <ul>
+          <li><a href="/index.html">ホーム</a></li>
+          <li><a href="/profile.html">プロフィール</a></li>
+          <li><a href="/information.html">最新情報</a></li>
+          <li><a href="/privacy-policy.html">プライバシーポリシー</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="content">
+      <div class="sidebar">
+        <h3>メニュー</h3>
+        <ul>
+          <li><a href="index.html">ダウンロードページへ戻る</a></li>
+          <li><a href="Help_Guide.html">ヘルプガイド</a></li>
+          <li><a href="Shortcut_Key.html">ショートカットキーマニュアル</a></li>
+        </ul>
+      </div>
+      <main>
+        <p>本ページのヘルプガイドは、最新バージョンの使用に基づいています。旧バージョンを使用されている方は、内容が異なる場合がありますのでご注意ください。</p>
+        <h2>概要</h2>
+        <p>このHTMLエディタは、Visual Studio で作成されたHTML作成支援ソフトウェアです。HTMLコードを直接編集できるほか、簡単にタグを挿入できる機能を搭載しています。</p>
+        <h2>ファイル操作</h2>
+        <p>ソフトを起動すると、空のエディタが表示されます。</p>
+        <p>[新規作成]基本的なHTMLのひな型をエディタに挿入できます。</p>
+        <p>[テンプレートを開く]シンプルなデザインサイトのテンプレートを挿入できます。</p>
+        <p>[開く]既存のHTMLファイルを開きます。HTMLファイルをエディタにドラッグアンドドロップで直接開くことも可能です。</p>
+        <p>[保存 / 上書き保存]現在のHTMLコードを上書き保存します。</p>
+        <p>[名前を付けて保存 / 別名で保存]現在のHTMLコードを別名で保存します。</p>
+        <p>[閉じる]@HTMLEditorを終了します。</p>
+        <h2>タグの挿入</h2>
+        <p>以下の手順で、選択したテキストに対してタグを挿入できます。</p>
+        <p>1.HTMLテキストを選択します。</p>
+        <p>2.メニューの各オプションまたはショートカットキーを使用して、対応するタグを挿入します。</p>
+        <h3>強調タグ(&lt;strong&gt;&lt;em&gt;&lt;u&gt;)</h3>
+        <p>[太字(強調)]選択したテキストを&lt;strong&gt;タグで囲みます。</p>
+        <p>[斜体(強調)]選択したテキストを&lt;em&gt;タグで囲みます。</p>
+        <p>[下線]選択したテキストを&lt;u&gt;タグで囲みます。</p>
+        <h3>取り消し線</h3>
+        <p>[取り消し線]選択したテキストを&lt;s&gt;タグで囲みます</p>
+        <h3>上付き文字 / 下付き文字</h3>
+        <p>[上付き文字]選択したテキストを&lt;sup&gt;タグで囲みます。</p>
+        <p>[下付き文字]選択したテキストを&lt;sub&gt;タグで囲みます。</p>
+        <h3>段落タグ(&lt;p&gt;)</h3>
+        <p>[段落]選択したテキストを&lt;p&gt;タグで囲みます。</p>
+        <h3>見出しタグ(&lt;h1&gt;&lt;h2&gt;&lt;h3&gt;&lt;h4&gt;)</h3>
+        <p>[最上位見出し]選択したテキストを&lt;h1&gt;タグで囲みます。</p>
+        <p>[大見出し]選択したテキストを&lt;h2&gt;タグで囲みます。</p>
+        <p>[中見出し]選択したテキストを&lt;h3&gt;タグで囲みます。</p>
+        <p>[小見出し]選択したテキストを&lt;h4&gt;タグで囲みます。</p>
+        <h3>リンクタグ</h3>
+        <p>[リンクの挿入]リンクを挿入します。</p>
+        <h3>画像/動画の挿入</h3>
+        <p>[画像の挿入]画像を挿入します。</p>
+        <p>[動画の挿入]&lt;video&gt;タグを挿入します。</p>
+        <h3>テーブルタグの挿入</h3>
+        <p>[テーブルタグの簡単挿入]テーブルタグを挿入します。</p>
+        <h3>Webコンテンツの埋め込み</h3>
+        <p>[Webコンテンツの埋め込み]&lt;iframe&gt;を挿入します。</p>
+        <h3>テキストとスタイル</h3>
+        <p>以下の機能で、テキストの配置やスタイルを変更できます。</p>
+        <p>[左寄せ]選択したテキストを&lt;div style=&quot;text-align: left;&quot;&gt;&lt;/div&gt;で囲みます。</p>
+        <p>[中央揃え]選択したテキストを&lt;div style=&quot;text-align: center;&quot;&gt;&lt;/div&gt;で囲みます。</p>
+        <p>[右寄せ]選択したテキストを&lt;div style=&quot;text-align: right;&quot;&gt;&lt;/div&gt;で囲みます。</p>
+        <p>[文字色]選択したテキストを&lt;span style=&quot;color: 「指定した色」;&quot;&gt;&lt;/span&gt;で囲みます。</p>
+        <p>[テキストのハイライトカラー]選択したテキストを&lt;span style=&quot;background-color: 「指定した色」;&quot;&gt;&lt;/span&gt;で囲みます。</p>
+        <p>[文字サイズ]選択したテキストを&lt;span style=&quot;font-size: 「指定したサイズ」;&quot;&gt;&lt;/span&gt;で囲みます。</p>
+        <h3>特殊文字の挿入</h3>
+        <p>[特殊文字の挿入]特殊文字のリストを表示し、選択した文字を挿入します。</p>
+        <h3>リアルタイムプレビュー</h3>
+        <p>[リアルタイムプレビュー]別ウインドウでHTMLファイルのプレビューを表示します。</p>
+        <h2>メニューバー</h2>
+        <h3>編集</h3>
+        <p>[元に戻す]コードの変更を一つ元に戻します。</p>
+        <p>[切り取り]選択したテキストを切り取ります</p>
+        <p>[コピー]選択したテキストをコピーします。</p>
+        <p>[貼り付け]コピーしたテキストを貼り付けます。</p>
+        <p>[すべて選択]コードを全て選択します。</p>
+        <h3>挿入</h3>
+        <p>こちらの内容は「タグの挿入」をご確認ください。</p>
+        <h3>表示</h3>
+        <p>[ツールバー]ツールバーの表示と非表示を切り替えます。</p>
+        <p>[書式バー]書式バーの表示と非表示を切り替えます。</p>
+        <p>[検索バー]検索バーの表示と非表示を切り替えます。</p>
+        <p>[右端で折り返す]コードを右端で折り返すか 折り返さないかを選択できます。</p>
+        <p>[フォント]ソフト内のフォントを変更します。</p>
+        <h3>設定</h3>
+        <p>[フォント]ソフト内のフォントを変更します。</p>
+        <p>[単語の自動選択を有効にする]単語の自動選択を有効にするかしないかを変更できます。</p>
+        <h3>ヘルプ</h3>
+        <p>[ヘルプガイド]ソフトのヘルプガイドを表示します。</p>
+        <p>[このソフトについて]このソフトの詳細を表示します。</p>
+        <h2>ツールバー</h2>
+        <p>こちらの内容は「編集」をご確認ください。</p>
+        <h2>書式バー</h2>
+        <p>こちらの内容は「タグの挿入」をご確認ください。</p>
+        <h2>検索バー</h2>
+        <p>HTMLファイルのコードを検索できます。</p>
+        <p>[上方向に検索]テキストボックスに入力した内容を上方向に検索します。</p>
+        <p>[下方向に検索]テキストボックスに入力した内容を下方向に検索します。</p>
+        <h2>ショートカットキーについて</h2>
+        <p>ショートカットキーについては「ショートカットキー マニュアル」をご確認ください。</p>
+      </main>
+    </div>
+    <footer>
+      <p>&copy; 2024 NAKAYAN</p>
+    </footer>
+  </div>
+</body>
+</html>
